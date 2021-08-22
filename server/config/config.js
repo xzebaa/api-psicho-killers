@@ -4,8 +4,9 @@ process.env.PORT = process.env.PORT || 3000;
 // entorno
 process.env.NODE_ENV = process.env.NODE_ENV || "development";
 
-let urlDB = "LEROLERO"; // mongodb url
-
+let urlDB =
+  "mongodb+srv://killer-user:089as7df983234@cluster0.korju.mongodb.net/psychoKiller"; // mongodb url
+c;
 if (process.env.NODE_ENV === "production") {
   urlDB = process.env.MONGO_URI;
 }
