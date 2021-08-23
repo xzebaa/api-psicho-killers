@@ -1,4 +1,4 @@
-# API REST NODE EXAMPLE
+# API REST NODE
 
 - open in port 3000
 - mongoose + express
