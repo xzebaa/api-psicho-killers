@@ -1,4 +1,4 @@
-# API REST NODE
+# API REST NODE PSYCHO KILLER
 
 - open in port 3000
 - mongoose + express
