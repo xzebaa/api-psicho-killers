@@ -1,7 +1,9 @@
 const express = require("express");
 const app = express();
 
-app.get("/health", (req, resp) => {
+const { sendEmail } = require("./../services/email");
+
+app.get("/health", async (req, resp) => {
   console.log("se llamo a health");
   const info = {
     "node-version": process.version,
@@ -14,9 +16,11 @@ app.get("/health", (req, resp) => {
     hostname: process.env.HOSTNAME
   };
 
+  await sendEmail();
   return resp.json({
     ok: true,
     info
   });
 });
+
 module.exports = app;

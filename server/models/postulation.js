@@ -15,7 +15,7 @@ const stepInterviewOtions = {
     "LANDING",
     "CALL",
     "INTERVIEW",
-    "CUSTOMER-INTERVIEW",
+    "CUSTOMER_INTERVIEW",
     "APPLICATION_FINISHED"
   ],
   message: "{VALUE} no es un estado de entrevista valido"
