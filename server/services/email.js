@@ -49,8 +49,9 @@ const templatePostulationFail = email => {
   };
 };
 
-const templateStatusPostulation = ({ feedback, email, name }) => {
-  const body = "";
+const templateStatusPostulation = ({ email, name }) => {
+  const body = "aa";
+
   return {
     to: email,
     from: FROM_ACCOUNT,

@@ -44,4 +44,25 @@ app.post("/newPostulation", async (req, resp) => {
   }
 });
 
+app.post("/updateStepChallenger", async (req, resp) => {
+  try {
+    const { body } = req;
+
+    const newPostulation = await PostulationService.updateStepChallenger(body);
+
+    return resp.json({
+      ok: true,
+      count: newPostulation
+    });
+  } catch (error) {
+    console.log(error);
+    return resp.status(400).json({
+      ok: false,
+      error: {
+        message: error.message
+      }
+    });
+  }
+});
+
 module.exports = app;

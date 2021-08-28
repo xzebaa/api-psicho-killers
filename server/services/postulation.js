@@ -59,4 +59,25 @@ const newPostulation = async data => {
   return postulationBD;
 };
 
-module.exports = { create, get, update, newPostulation };
+const updateStepChallenger = async data => {
+  const { id: _id } = data;
+
+  const newPostulation = await Postulation.findByIdAndUpdate(
+    _id,
+    { $set: { stepInterview: "CALL" } },
+    { new: true }
+  ).exec();
+
+  console.log(newPostulation);
+  const newPostulant = await PostulantService.findById(
+    String(newPostulation.postulantId)
+  );
+
+  const { email, name } = newPostulant[0];
+
+  sendEmailStatusPostulation({ email, name });
+
+  return newPostulation;
+};
+
+module.exports = { create, get, update, newPostulation, updateStepChallenger };

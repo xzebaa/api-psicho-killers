@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const Postulant = require("./../models/postulant");
 
 const create = async postulant => {
@@ -25,4 +26,10 @@ const update = async (id, postulant) => {
   return newPostulant;
 };
 
-module.exports = { create, get, update, getByEmail };
+const findById = async id => {
+  const _id = mongoose.Types.ObjectId(id);
+  const newPostulant = await Postulant.find(_id);
+  return newPostulant;
+};
+
+module.exports = { create, get, update, getByEmail, findById };
