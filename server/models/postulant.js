@@ -19,7 +19,7 @@ let postulantSchema = new Schema(
       required: [true, "nacionalidad necesario"]
     },
     permanentResidence: {
-      type: String
+      type: Boolean
     },
     phone: {
       type: String

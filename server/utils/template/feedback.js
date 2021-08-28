@@ -1,4 +1,4 @@
-const feedbackTemplate = ({ name }) => {
+const feedbackTemplate = ({ feedback, name }) => {
   return `
   <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html
@@ -411,7 +411,7 @@ const feedbackTemplate = ({ name }) => {
                                     <div>
                                       <h2 class="titleLanding">
                                         <span
-                                          ><strong>Angel, </strong> ¡Tenemos un
+                                          ><strong>${name}, </strong> ¡Tenemos un
                                           regalo para ti!</span
                                         ><br />
                                       </h2>

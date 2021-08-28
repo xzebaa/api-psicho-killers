@@ -411,7 +411,7 @@ const statusPostulationTemplate = ({ name }) => {
                                     <div>
                                       <h2 class="titleLanding">
                                         <span
-                                          ><strong>Angel, </strong> ¡Has
+                                          ><strong>${name}, </strong> ¡Has
                                           avanzado al siguiente paso!</span
                                         ><br />
                                       </h2>

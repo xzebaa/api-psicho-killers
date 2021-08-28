@@ -7,14 +7,6 @@ const newPostulationTemplate = ({ name }) => {
   style="width:100%;font-family:Poppins, sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;padding:0;Margin:0"
 >
   <head>
-    <link
-      href="https://fonts.googleapis.com/css?family=Poppins"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Montserrat:100"
-      rel="stylesheet"
-    />
 
     <meta charset="UTF-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -22,6 +14,25 @@ const newPostulationTemplate = ({ name }) => {
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta content="telephone=no" name="format-detection" />
     <title>New email template 2021-02-21</title>
+
+  <!-- Desktop Outlook chokes on web font references and defaults to Times New Roman, so we force a safe fallback font. -->
+<!--[if mso]>
+    <style>
+        * {
+            font-family: sans-serif !important;
+        }
+    </style>
+<![endif]-->
+
+<!-- All other clients get the webfont reference; some will render the font and others will silently fail to the fallbacks. More on that here: http://stylecampaign.com/blog/2015/02/webfont-support-in-email/ -->
+<!--[if !mso]><!-->
+    <link href='https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap' rel='stylesheet' type='text/css'>
+<!--<![endif]-->
+
+<style>
+    * {font-family: Poppins, sans-serif;}
+</style>
+
     <!--[if (mso 16)
       ]><style type="text/css">
         a {
@@ -44,6 +55,7 @@ const newPostulationTemplate = ({ name }) => {
       </xml><!
     [endif]-->
     <style type="text/css">
+
       #outlook a {
         padding: 0;
       }
@@ -97,7 +109,7 @@ const newPostulationTemplate = ({ name }) => {
         -webkit-text-size-adjust: none;
         -ms-text-size-adjust: none;
         mso-line-height-rule: exactly;
-        font-family: Poppins;
+        font-family: Poppins, sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 20px;
@@ -286,7 +298,7 @@ const newPostulationTemplate = ({ name }) => {
           -webkit-text-size-adjust: none;
           -ms-text-size-adjust: none;
           mso-line-height-rule: exactly;
-          font-family: Poppins;
+          font-family: Poppins, sans-serif;
           font-style: normal;
           font-weight: 500;
           font-size: 20px;
@@ -408,7 +420,7 @@ const newPostulationTemplate = ({ name }) => {
                                     <div>
                                       <h2 class="titleLanding">
                                         <span
-                                          ><strong>Angel, </strong> ¡Hemos
+                                          ><strong>${name}, </strong> ¡Hemos
                                           recibido tu postulación!</span
                                         ><br />
                                       </h2>
@@ -420,7 +432,7 @@ const newPostulationTemplate = ({ name }) => {
                                     style="padding:0;Margin:0;padding-left:0px;padding-top:1px"
                                   >
                                     <p
-                                      style="font-family: Poppins;font-style: normal;font-weight: normal;font-size: 16px;line-height: 24px;color: #212529;mso-line-height-rule:exactly;"
+                                      style="font-family: Poppins, sans-serif;font-style: normal;font-weight: normal;font-size: 16px;line-height: 24px;color: #212529;mso-line-height-rule:exactly;"
                                     >
                                       Tu postulación se encuentra dentro y ya la
                                       estamos revisando. <br />
@@ -437,7 +449,7 @@ const newPostulationTemplate = ({ name }) => {
                                       ¿Tienes alguna duda?<br />
                                     </p>
                                     <p
-                                      style="font-family: Poppins;font-style: normal;font-weight: normal;font-size: 16px;line-height: 24px;color: #212529;mso-line-height-rule:exactly;"
+                                      style="font-family: Poppins, sans-serif;font-style: normal;font-weight: normal;font-size: 16px;line-height: 24px;color: #212529;mso-line-height-rule:exactly;"
                                     >
                                       Si tienes preguntas o simplemente quieres
                                       saber más de nosotros, nos puedes enviar
@@ -494,7 +506,7 @@ const newPostulationTemplate = ({ name }) => {
                               style="padding:0;Margin:0;width:560px"
                             >
                               <p
-                                style="font-family: Montserrat;font-style: normal;font-weight: 900;font-size: 16px;line-height: 20px;color: #FAFAFA;margin-right: 31px;"
+                                style="font-family: Poppins, sans-serif;font-style: normal;font-weight: 900;font-size: 16px;line-height: 20px;color: #FAFAFA;margin-right: 31px;"
                               >
                                 #iampeanut<br />
                               </p>

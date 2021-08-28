@@ -6,6 +6,7 @@ const app = express();
 app.post("/postulant", async (req, resp) => {
   try {
     const { body } = req;
+
     const newPostulant = await PostulanService.create(body);
 
     return resp.json({

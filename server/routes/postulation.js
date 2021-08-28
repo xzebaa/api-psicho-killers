@@ -23,4 +23,25 @@ app.post("/postulation", async (req, resp) => {
   }
 });
 
+app.post("/newPostulation", async (req, resp) => {
+  try {
+    const { body } = req;
+
+    const newPostulation = await PostulationService.newPostulation(body);
+
+    return resp.json({
+      ok: true,
+      count: newPostulation
+    });
+  } catch (error) {
+    console.log(error);
+    return resp.status(400).json({
+      ok: false,
+      error: {
+        message: error.message
+      }
+    });
+  }
+});
+
 module.exports = app;

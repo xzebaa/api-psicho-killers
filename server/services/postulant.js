@@ -11,6 +11,11 @@ const get = async find => {
   return newPostulant;
 };
 
+const getByEmail = async email => {
+  const newPostulant = await Postulant.find({ email: email });
+  return newPostulant;
+};
+
 const update = async (id, postulant) => {
   const newPostulant = await Postulant.findByIdAndUpdate(
     id,
@@ -20,4 +25,4 @@ const update = async (id, postulant) => {
   return newPostulant;
 };
 
-module.exports = { create, get, update };
+module.exports = { create, get, update, getByEmail };

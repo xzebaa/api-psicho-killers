@@ -408,7 +408,7 @@ const postulationFailTemplate = ({ name }) => {
                                     <div>
                                       <h2 class="titleLanding">
                                         <span
-                                          ><strong>Angel, </strong> has llegado
+                                          ><strong>${name}, </strong> has llegado
                                           muy lejos...</span
                                         ><br />
                                       </h2>
