@@ -1,4 +1,11 @@
+const nodemailer = require("nodemailer");
+
 const sendGridMail = require("@sendgrid/mail");
+
+const SENGRID_ACTIVE = false;
+
+const FROM_ACCOUNT = "reportes@simplecheck.cl";
+
 const {
   feedbackTemplate,
   newPostulationTemplate,
@@ -6,9 +13,6 @@ const {
   statusPostulationTemplate
 } = require("./../utils/template");
 
-const EMAIL = "x.zebaa@gmail.com";
-
-console.log("here");
 console.log(process.env.SENDGRID_API_KEY);
 sendGridMail.setApiKey(process.env.SENDGRID_API_KEY);
 
@@ -16,7 +20,7 @@ const templatePostulation = ({ email, name }) => {
   const body = "aa";
   return {
     to: email,
-    from: "sebastian.alvarez@peanuthub.cl",
+    from: FROM_ACCOUNT,
     subject: "POSTULACION",
     text: body,
     html: newPostulationTemplate({ name: name })
@@ -27,7 +31,7 @@ const templateFeedback = ({ feedback, email, name }) => {
   const body = "";
   return {
     to: email,
-    from: "sebastian.alvarez@peanuthub.cl",
+    from: FROM_ACCOUNT,
     subject: "FEEDBACK",
     text: body,
     html: feedbackTemplate({ feedback, email, name })
@@ -38,7 +42,7 @@ const templatePostulationFail = email => {
   const body = "";
   return {
     to: email,
-    from: "sebastian.alvarez@peanuthub.cl",
+    from: FROM_ACCOUNT,
     subject: "POSTULATION FAIL",
     text: body,
     html: postulationFailTemplate({ name: "sebaaaa" })
@@ -49,20 +53,20 @@ const templateStatusPostulation = ({ feedback, email, name }) => {
   const body = "";
   return {
     to: email,
-    from: "sebastian.alvarez@peanuthub.cl",
+    from: FROM_ACCOUNT,
     subject: "POSTULACION STATUS",
     text: body,
     html: statusPostulationTemplate({ name })
   };
 };
 
-const sendEmail = async () => {
+const sendEmail = async email => {
   try {
-    await sendGridMail.send(templatePostulation());
-    await sendGridMail.send(templateFeedback());
-    await sendGridMail.send(templatePostulationFail());
-    await sendGridMail.send(templateStatusPostulation());
-    console.log("Test email sent successfully");
+    if (SENGRID_ACTIVE) {
+      await sendGridMail.send(email);
+    } else {
+      sendEmailNodeMailer(email);
+    }
   } catch (error) {
     console.error("Error sending  email");
     console.error(error);
@@ -74,7 +78,7 @@ const sendEmail = async () => {
 
 const sendEmailPostulation = async ({ email, name }) => {
   try {
-    await sendGridMail.send(templatePostulation({ email, name }));
+    await sendEmail(templatePostulation({ email, name }));
 
     console.log("email sent successfully");
   } catch (error) {
@@ -88,7 +92,7 @@ const sendEmailPostulation = async ({ email, name }) => {
 
 const sendEmailStatusPostulation = async ({ email, name }) => {
   try {
-    await sendGridMail.send(templateStatusPostulation({ email, name }));
+    await sendEmail(templateStatusPostulation({ email, name }));
 
     console.log("email sent successfully");
   } catch (error) {
@@ -102,7 +106,7 @@ const sendEmailStatusPostulation = async ({ email, name }) => {
 
 const sendEmailFeedBack = async (feedback, email) => {
   try {
-    await sendGridMail.send(templateFeedback({ feedback, email }));
+    await sendEmail(templateFeedback({ feedback, email }));
     console.log("Test email sent successfully");
   } catch (error) {
     console.error("Error sending  email");
@@ -111,6 +115,29 @@ const sendEmailFeedBack = async (feedback, email) => {
       console.error(error.response.body);
     }
   }
+};
+
+const sendEmailNodeMailer = mailOptions => {
+  const transporter = nodemailer.createTransport({
+    host: "mail.dorrola.com",
+    port: 587,
+    auth: {
+      user: "reportes@simplecheck.cl",
+      pass: "cvaycbnqgdbx"
+    },
+    tls: {
+      rejectUnauthorized: false
+    }
+  });
+
+  console.log("enviando  mail");
+  transporter.sendMail(mailOptions, function(error, info) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Email sent: " + info.response);
+    }
+  });
 };
 
 module.exports = {
