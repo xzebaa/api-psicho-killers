@@ -22,6 +22,26 @@ const statusPostulationTemplate = ({ name }) => {
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta content="telephone=no" name="format-detection" />
     <title>New email template 2021-02-21</title>
+
+      <!-- Desktop Outlook chokes on web font references and defaults to Times New Roman, so we force a safe fallback font. -->
+<!--[if mso]>
+    <style>
+        * {
+            font-family: sans-serif !important;
+        }
+    </style>
+<![endif]-->
+
+<!-- All other clients get the webfont reference; some will render the font and others will silently fail to the fallbacks. More on that here: http://stylecampaign.com/blog/2015/02/webfont-support-in-email/ -->
+<!--[if !mso]><!-->
+    <link href='https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap' rel='stylesheet' type='text/css'>
+<!--<![endif]-->
+
+<style>
+    * {font-family: Poppins, sans-serif;}
+</style>
+
+
     <!--[if (mso 16)
       ]><style type="text/css">
         a {
@@ -97,7 +117,7 @@ const statusPostulationTemplate = ({ name }) => {
         -webkit-text-size-adjust: none;
         -ms-text-size-adjust: none;
         mso-line-height-rule: exactly;
-        font-family: Poppins;
+         font-family: Poppins, sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 20px;
@@ -288,7 +308,7 @@ const statusPostulationTemplate = ({ name }) => {
           -webkit-text-size-adjust: none;
           -ms-text-size-adjust: none;
           mso-line-height-rule: exactly;
-          font-family: Poppins;
+           font-family: Poppins, sans-serif;
           font-style: normal;
           font-weight: 500;
           font-size: 20px;
@@ -300,7 +320,7 @@ const statusPostulationTemplate = ({ name }) => {
     </style>
   </head>
   <body
-    style="width:100%;font-family:Poppins;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;padding:0;Margin:0"
+    style="width:100%; font-family: Poppins, sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;padding:0;Margin:0"
   >
     <div class="es-wrapper-color" style="background-color:#E5E5E5">
       <!--[if gte mso 9
@@ -364,7 +384,7 @@ const statusPostulationTemplate = ({ name }) => {
                                     <a
                                       target="_blank"
                                       href="https://viewstripo.email/"
-                                      style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:Poppins, sans-serif;font-size:14px;text-decoration:none;color:#3CA7F1"
+                                      style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly; font-family: Poppins, sans-serif;font-size:14px;text-decoration:none;color:#3CA7F1"
                                       ><img
                                         class="adapt-img"
                                         src="https://res.cloudinary.com/dorrola/image/upload/v1629775211/Frame_4_r7gvvl.png"
@@ -423,7 +443,7 @@ const statusPostulationTemplate = ({ name }) => {
                                     style="padding:0;Margin:0;padding-left:0px;padding-top:1px"
                                   >
                                     <p
-                                      style="font-family: Poppins;font-style: normal;font-weight: normal;font-size: 16px;line-height: 24px;color: #212529;mso-line-height-rule:exactly;"
+                                      style=" font-family: Poppins, sans-serif;font-style: normal;font-weight: normal;font-size: 16px;line-height: 24px;color: #212529;mso-line-height-rule:exactly;"
                                     >
                                       Estamos felices de anunciarte que has
                                       avanzado al siguiente paso en tu
@@ -469,7 +489,7 @@ const statusPostulationTemplate = ({ name }) => {
                                     <a
                                       target="_blank"
                                       href="https://viewstripo.email/"
-                                      style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:Poppins, sans-serif;font-size:14px;text-decoration:none;color:#3CA7F1"
+                                      style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly; font-family: Poppins, sans-serif;font-size:14px;text-decoration:none;color:#3CA7F1"
                                       ><img
                                         class="adapt-img"
                                         src="https://res.cloudinary.com/dorrola/image/upload/v1629805171/Estados_de_una_postulaci%C3%B3n_tooltips_hcdrdo.png  "
@@ -516,7 +536,7 @@ const statusPostulationTemplate = ({ name }) => {
                                     style="padding:0;Margin:0;padding-left:0px;padding-top:1px"
                                   >
                                     <p
-                                      style="font-family: Poppins;font-style: normal;font-weight: normal;font-size: 16px;line-height: 24px;color: #212529;mso-line-height-rule:exactly;"
+                                      style=" font-family: Poppins, sans-serif;font-style: normal;font-weight: normal;font-size: 16px;line-height: 24px;color: #212529;mso-line-height-rule:exactly;"
                                     >
                                       Para esta etapa, Marcela Aravena estará
                                       comunicandose contigo vía telefonica al
@@ -531,7 +551,7 @@ const statusPostulationTemplate = ({ name }) => {
                                       ¿Tienes alguna duda?<br />
                                     </p>
                                     <p
-                                      style="font-family: Poppins;font-style: normal;font-weight: normal;font-size: 16px;line-height: 24px;color: #212529;mso-line-height-rule:exactly;"
+                                      style=" font-family: Poppins, sans-serif;font-style: normal;font-weight: normal;font-size: 16px;line-height: 24px;color: #212529;mso-line-height-rule:exactly;"
                                     >
                                       Si tienes preguntas o simplemente quieres
                                       saber más de nosotros, nos puedes enviar
@@ -588,7 +608,7 @@ const statusPostulationTemplate = ({ name }) => {
                               style="padding:0;Margin:0;width:560px"
                             >
                               <p
-                                style="font-family: Montserrat;font-style: normal;font-weight: 900;font-size: 16px;line-height: 20px;color: #FAFAFA;margin-right: 31px;"
+                                style=" font-family: Poppins, sans-serif;font-style: normal;font-weight: 900;font-size: 16px;line-height: 20px;color: #FAFAFA;margin-right: 31px;"
                               >
                                 #iampeanut<br />
                               </p>
