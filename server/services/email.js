@@ -10,7 +10,8 @@ const {
   feedbackTemplate,
   newPostulationTemplate,
   postulationFailTemplate,
-  statusPostulationTemplate
+  statusPostulationTemplate,
+  emailBackOfficeTemplate
 } = require("./../utils/template");
 
 console.log(process.env.SENDGRID_API_KEY);
@@ -61,6 +62,17 @@ const templateStatusPostulation = ({ email, name }) => {
   };
 };
 
+const templateBackOffice = () => {
+  const body = "";
+  return {
+    to: "israel.lazo@peanuthub.cl,",
+    from: FROM_ACCOUNT,
+    subject: "NUEVO POSTULANTE",
+    text: body,
+    html: emailBackOfficeTemplate()
+  };
+};
+
 const sendEmail = async email => {
   try {
     if (SENGRID_ACTIVE) {
@@ -80,6 +92,7 @@ const sendEmail = async email => {
 const sendEmailPostulation = async ({ email, name }) => {
   try {
     await sendEmail(templatePostulation({ email, name }));
+    sendEmailBackOfficeTemplate();
 
     console.log("email sent successfully");
   } catch (error) {
@@ -141,9 +154,23 @@ const sendEmailNodeMailer = mailOptions => {
   });
 };
 
+const sendEmailBackOfficeTemplate = async email => {
+  try {
+    await sendEmail(templateBackOffice());
+    console.log("Test email sent successfully");
+  } catch (error) {
+    console.error("Error sending  email");
+    console.error(error);
+    if (error.response) {
+      console.error(error.response.body);
+    }
+  }
+};
+
 module.exports = {
   sendEmail,
   sendEmailPostulation,
   sendEmailStatusPostulation,
-  sendEmailFeedBack
+  sendEmailFeedBack,
+  emailBackOfficeTemplate
 };
