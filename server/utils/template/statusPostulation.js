@@ -492,7 +492,7 @@ const statusPostulationTemplate = ({ name }) => {
                                       style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly; font-family: Poppins, sans-serif;font-size:14px;text-decoration:none;color:#3CA7F1"
                                       ><img
                                         class="adapt-img"
-                                        src="https://res.cloudinary.com/dorrola/image/upload/v1629805171/Estados_de_una_postulaci%C3%B3n_tooltips_hcdrdo.png  "
+                                        src="https://res.cloudinary.com/dorrola/image/upload/v1630179879/correo_flujo_yuykwe.png"
                                         alt
                                         width="600"
                                         height="176"
